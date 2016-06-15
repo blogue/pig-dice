@@ -1,7 +1,7 @@
 // player object constructor
-function players(points){
-  this.points = points;
-}
+// function Players(points){
+//   this.points = points;
+// }
 // dice roll function
 
 var diceRoll = function(){
@@ -10,14 +10,56 @@ var diceRoll = function(){
 
 
 $(document).ready(function(){
+    var playerOne = {
+      pointTotal: 0,
+      turn: 2
+    }
 
-  $("#pig-dice-game").submit(function(event){
-    event.preventDefault();
-    var input = ($("#blank").val());
+    var playerTwo = {
+      pointTotal: 0,
+      turn: 1
+    }
+    var roundPoints = 0;
 
-    var output = "";
+      $("#roll").click(function(){
+        roll = diceRoll();
+        roundPoints += roll;
+        if (playerOne.turn % 2 === 0 && roll === 1) {
+          $("#player-turn").text("Player Two Turn");
+          playerOne.turn += 1;
+          roundPoints = 0;
+          $("#round-points").text(roundPoints);
+        } else if (playerOne.turn % 2 !== 0 && roll === 1) {
+          $("#player-turn").text("Player One Turn");
+          playerOne.turn += 1;
+          roundPoints = 0;
+          $("#round-points").text(roundPoints);
+        }
 
-    $('#output').text(output);
+        $("#dice-roll").text(roll);
+        $("#round-points").text(roundPoints);
+
+      });
+
+      $("#pig-dice-game").submit(function(event){
+        event.preventDefault();
+        if (playerOne.turn % 2 === 0) {
+        $("#player-turn").text("Player Two Turn");
+
+        playerOne.pointTotal += roundPoints;
+        $('#player-one-points').text(playerOne.pointTotal);
+        playerOne.turn += 1;
+        roundPoints = 0;
+        $("#round-points").text(roundPoints);
+      } else {
+        $("#player-turn").text("Player One Turn");
+        playerTwo.pointTotal += roundPoints;
+        $('#player-two-points').text(playerTwo.pointTotal);
+        playerOne.turn += 1;
+        roundPoints = 0;
+        $("#round-points").text(roundPoints);
+      }
+
 
   });
 });
