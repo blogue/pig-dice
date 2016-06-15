@@ -7,36 +7,54 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Web Development Template</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
-
+    <title>Pig Dice</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet">
-
     <!-- Jquery JS -->
     <script src="js/jquery-2.2.4.js" type="text/javascript"></script>
-
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
-
     <!-- Custom JS -->
     <script src="js/scripts.js" type="text/javascript"></script>
-
   </head>
-
   <body>
     <div class="container">
       <header>
-        <h1>Epicodus Project Template</h1>
+        <h1>Pig Dice</h1>
       </header>
-      <h2>Hello World!</h2>
-      <p>
-        This is a nice little index file.  It calls in five different files to support Bootstrap, JQuery, and your custom css and js.
-      </p>
+      <!-- Dice roll shows here -->
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5 well">
+            <div id="current-roll">
+              <h1>5</h1>
+            </div>
+        </div>
+      </div>
+      <!-- Buttons to hold and add total to player points or roll again -->
+      <form id="pig-dice-game" action="index.html" method="post">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 well">
+            <button id="roll" type="button" name="button">ROLL</button> <button id="hold" type="submit" name="button">HOLD</button>
+          </div>
+        </div>
+        <!-- Point total for round -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 well">
+            <h1>Point total: <span id="round-points"></span></h1>
+          </div>
+        </div>
+        <!-- Player one point total and player two point total -->
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3 well">
+            <h3>Player One: <span id="player-one-points"></span></h3>
+          </div>
+          <div class="col-md-3 well">
+            <h3>Player two: <span id="player-two-points"></span></h3>
+          </div>
+        </div>
+      </form>
       <footer>
         <p>&copy; 2016 Epicodus Pair Project, Inc.</p>
       </footer>

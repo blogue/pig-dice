@@ -1,10 +1,17 @@
-/*This file is for your custom js.  All yours*/
+// player object constructor
+function players(points){
+  this.points = points;
+}
+// dice roll function
 
-// Calls input from form-input.html
+var diceRoll = function(){
+  return Math.floor(Math.random() * 6 + 1);
+}
+
 
 $(document).ready(function(){
 
-  $("#input").submit(function(event){
+  $("#pig-dice-game").submit(function(event){
     event.preventDefault();
     var input = ($("#blank").val());
 
