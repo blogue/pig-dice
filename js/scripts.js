@@ -8,20 +8,21 @@ function Player(points, roundpoints, playertype, turn) {
 var diceRoll = function(){
   return Math.floor(Math.random() * 6 + 1);
 }
-
-var playerOne = {
-
-};
-var playerTwo = {
-
-};
+adgfadsgfdsg fd fgsdg 
+// var playerOne = {
+//
+// };
+// var playerTwo = {
+//
+// };
 
 $(document).ready(function(){
   $('#playerSelect').submit(function (event) {
     event.preventDefault();
     debugger;
     var gameType = $("#players option:selected").val();
-    if (gameType === "1"){
+    // console.log(gameType);
+    if (gameType === 'Player vs Player'){
       playerOne = new Player (0, 0, "human", 2);
       playerTwo = new Player (0, 0, "human");
     } else {
@@ -30,9 +31,9 @@ $(document).ready(function(){
     }
   });
 
-  if (playerTwo.player === "computer") {
-
-  }
+  // if (playerTwo.player === "computer") {
+  //
+  // }
 
 
   $("#roll").click(function(){
