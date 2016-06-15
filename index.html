@@ -31,17 +31,27 @@
       </div>
       <!-- Dice roll shows here -->
       <div class="row">
-        <div class="col-md-2 col-md-offset-5 well">
+        <form id="playerSelect">
+          <div class ='col-md-2'>
+            <h3>Select your game type</h3>
+            <select id="players">
+              <option selected disabled>Please select</option>
+              <option value='1'>Playeer vs Player</option>
+              <option value='2'>Player vs Computer</option>
+            </select>
+            <button type="submit" class="btn btn-success">START</button>
+          </div>
+        </form>
+        <div class="col-md-2 col-md-offset-3 well">
             <div id="current-roll">
               <h1><span id="dice-roll"></span></h1>
             </div>
         </div>
       </div>
       <!-- Buttons to hold and add total to player points or roll again -->
-      <form id="pig-dice-game" action="index.html" method="post">
         <div class="row">
           <div class="col-md-6 col-md-offset-3 well">
-            <button id="roll" type="button" name="button">ROLL</button> <button id="hold" type="submit" name="button">HOLD</button>
+            <button id="roll" type="button" name="button">ROLL</button> <button id="hold" type="button" name="button">HOLD</button>
           </div>
         </div>
         <!-- Point total for round -->
@@ -59,7 +69,6 @@
             <h3>Player two: <span id="player-two-points"></span></h3>
           </div>
         </div>
-      </form>
       <footer>
         <p>&copy; 2016 Epicodus Pair Project, Inc.</p>
       </footer>
