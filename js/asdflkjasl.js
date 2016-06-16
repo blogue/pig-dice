@@ -9,9 +9,15 @@ function Player(name, points, playertype) {
   this.playerType = playertype;
 }
 
-var diceRoll = function(){
+Player.prototype.diceRoll = function(){
   return Math.floor(Math.random() * 6 + 1);
 }
+
+Player.prototype.checkRoll = function(){
+  roll = this.diceRoll();
+}
+
+playerOne.lastname = dklsfjk
 
 var computerTurn = function() {
 
