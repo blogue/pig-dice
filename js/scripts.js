@@ -13,27 +13,9 @@ var diceRoll = function(){
   return Math.floor(Math.random() * 6 + 1);
 }
 
-// function that checks turn
-
-// function will check die and end turn if a one is rolled
-var checkForOne = function(){
-  if (roll === 1) {
-    i++;
-  }
-}
-// function will add roll to round points
-var addToPoints = function(){
-  return roundPoints += roll;
-}
-// function will end turn and add round points to player points and reset round points to zero
-  var playerHold = function(){
-    return players[i] += roundPoints;
-  }
-// function that checks length of array and if its at the end it will reset to beginning
-var resetTurn = function() {
+var computerTurn = function() {
 
 }
-
 
 $(document).ready(function(){
 
@@ -70,10 +52,18 @@ $(document).ready(function(){
 
   $("#roll").click(function(){
     roll = diceRoll();
+    if (roll === 1) {
+      turn++;
+      if (turn >= players.length) {
+        turn = 0;
+      }
+      roundPoints = 0;
+      alert("You rolled a 1, it's now " + players[turn].playerName + "'s turn")
+    } else {
     roundPoints += roll;
-
     $("#current-roll").text(roll);
     $("#round-points").text(roundPoints);
+    }
   });
 
   $("#hold").click(function(){
@@ -85,6 +75,14 @@ $(document).ready(function(){
     turn++;
     if (turn >= players.length) {
     turn = 0;
+    }
+    if (players[turn].playerType === "Computer") {
+      while(roundPoints < 25) {
+        roll = diceRoll();
+        roundPoints += roll;
+      }
+      players[turn].points += roundPoints;
+      turn++;
     }
   });
 });
