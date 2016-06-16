@@ -1,89 +1,92 @@
-function Player(points, roundpoints, playertype, turn) {
+var players = [];
+var turn = 0;
+var roundPoints = 0;
+
+
+function Player(name, points, playertype) {
+  this.playerName = name;
   this.points = points;
-  this.roundpoints = roundpoints;
-  this.player = playertype;
-  this.turn = turn;
+  this.playerType = playertype;
 }
 
 var diceRoll = function(){
   return Math.floor(Math.random() * 6 + 1);
 }
-adgfadsgfdsg fd fgsdg 
-// var playerOne = {
-//
-// };
-// var playerTwo = {
-//
-// };
+
+// function that checks turn
+
+// function will check die and end turn if a one is rolled
+var checkForOne = function(){
+  if (roll === 1) {
+    i++;
+  }
+}
+// function will add roll to round points
+var addToPoints = function(){
+  return roundPoints += roll;
+}
+// function will end turn and add round points to player points and reset round points to zero
+  var playerHold = function(){
+    return players[i] += roundPoints;
+  }
+// function that checks length of array and if its at the end it will reset to beginning
+var resetTurn = function() {
+
+}
+
 
 $(document).ready(function(){
-  $('#playerSelect').submit(function (event) {
-    event.preventDefault();
-    debugger;
-    var gameType = $("#players option:selected").val();
-    // console.log(gameType);
-    if (gameType === 'Player vs Player'){
-      playerOne = new Player (0, 0, "human", 2);
-      playerTwo = new Player (0, 0, "human");
-    } else {
-      playerOne = new Player (0, 0, "human");
-      playerTwo = new Player (0, 0, "computer");
-    }
+
+  $("#add").click(function(){
+    $("#new-players").append('<div class="new-player">'
+        +  '<div class ="col-md-2 well">'
+        +  '<div class="form-group">'
+        +    '<label>Name: </label>'
+        +    '<input id="player-name" type="text" name="name" value="">'
+        +  '</div>'
+        +  '<div class="form-group">'
+        +    '<select id="player-type">'
+        +      '<option selected disabled>Please select</option>'
+        +      '<option>Human</option>'
+        +      '<option>Computer</option>'
+        +    '</select>'
+      +    '</div>'
+    +  '</div>'
+    +  '</div>')
+
   });
 
-  // if (playerTwo.player === "computer") {
-  //
-  // }
 
+  $('#players-select').submit(function (event) {
+    event.preventDefault();
+
+    $(".new-player").each(function(){
+    var playerName = $(this).find("#player-name").val();
+    var humanOrComputer = $(this).find("#player-type option:selected").val();
+
+    var newPlayer = new Player(playerName, 0, humanOrComputer);
+    players.push(newPlayer);
+    });
 
   $("#roll").click(function(){
-    var currentRoll = diceRoll();
-    if (playerOne.turn %2 === 0) {
-      if (currentRoll === 1) {
-        currentRoll = 0;
-        playerOne.turn ++;
-      }
-    playerOne.roundPoints += currentRoll;
-  } else {
-      if (currentRoll === 1) {
-        currentRoll = 0;
-        playerOne.turn ++;
-      }
-    playerTwo.roundPoints += currentRoll;
-  }
+    roll = diceRoll();
+    roundPoints += roll;
+
+    $("#current-roll").text(roll);
+    $("#round-points").text(roundPoints);
   });
 
   $("#hold").click(function(){
-
-    if (playerOne.turn % 2 === 0) {
-    $("#player-turn").text("Player Two Turn");
-    playerOne.points += playerOne.roundpoints;
-    $('#player-one-points').text(playerOne.points);
-    playerOne.turn += 1;
-    playerOne.roundPoints = 0;
-    $("#round-points").text('0');
-  } else {
-    $("#player-turn").text("Player One Turn");
-    playerTwo.points += playerTwo.roundpoints;
-    $('#player-two-points').text(playerTwo.points);
-    playerOne.turn += 1;
-    playerTwo.roundPoints = 0;
-    $("#round-points").text('0');
-  }
-
-  if (playerOne.points >= 100) {
-    alert("Player one wins!");
-    playerOne.points = 0;
-    playerTwo.points = 0;
-    $('#player-one-points').text(playerOne.points);
-    $('#player-two-points').text(playerTwo.points);
-  } else if (playerTwo.points >= 100) {
-    alert("Player two wins!");
-    playerOne.points = 0;
-    playerTwo.points = 0;
-    playerOne.turn += 1;
-    $('#player-one-points').text(playerOne.points);
-    $('#player-two-points').text(playerTwo.points);
-  }
+    players[turn].points += roundPoints;
+    if (players[turn].points >= 15) {
+      alert(players[turn].playerName + " is the winner!");
+    }
+    roundPoints = 0;
+    turn++;
+    if (turn >= players.length) {
+    turn = 0;
+    }
   });
+});
+
 });
