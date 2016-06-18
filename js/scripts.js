@@ -17,7 +17,6 @@ Player.prototype.hold = function(){
   this.points += this.roundPoints;
 }
 
-
 $(document).ready(function(){
   var playerOne;
   var playerTwo;
@@ -58,7 +57,7 @@ $(document).ready(function(){
                 $("#player-turn").text("Player One Turn");
               }
 
-            diceDisplay(currentRoll);  
+            diceDisplay(currentRoll);
             $("#round-points").text(playerTwo.roundPoints);
         }
       });
@@ -70,6 +69,9 @@ $(document).ready(function(){
 
         playerOne.points += playerOne.roundPoints;
         $('#player-one-points').text(playerOne.points);
+        if (playerOne.points >= 30) {
+          alert(playerOne.name + " wins!");
+        }
         playerOneTurn = false;
         playerOne.roundPoints = 0;
         $("#round-points").text(playerOne.roundPoints);
@@ -77,6 +79,9 @@ $(document).ready(function(){
         $("#player-turn").text("Player One Turn");
         playerTwo.points += playerTwo.roundPoints;
         $('#player-two-points').text(playerTwo.points);
+        if (playerTwo.points >= 30) {
+          alert(playerTwo.name + " wins!");
+        }
         playerOneTurn = true;
         playerTwo.roundPoints = 0;
         $("#round-points").text(playerOne.roundPoints);
