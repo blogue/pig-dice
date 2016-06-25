@@ -1,6 +1,6 @@
 /*This file is for your custom css.  All yours*/
 body {
-  font-family: Bangers, impact;
+  font-family:Bangers, impact;
   background-color: lightpink;
 }
 
@@ -24,12 +24,6 @@ header {
 div {
   text-align: center;
 }
-/*#playerOneCard, #playerTwoCard {
-  margin-top: 10px;
-  background-color: lightgrey;
-  border: solid 2px grey;
-  border-radius: 10px 10px;
-}*/
 
 .active-player {
   background-color: lightyellow;
@@ -38,16 +32,58 @@ div {
   margin-top: 10px;
 }
 
-.inactive-player {
-  background-color: lightgrey;
-  border-color: solid 2px grey;
+#playerOneCard, #playerTwoCard {
+  background-color: lightgreen;
+  border-color: solid 2px green;
   border-radius: 10px 10px;
   margin-top: 10px;
+  color: white;
+  text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+       3px 3px 0 #000;
 }
 
 #rPoints {
   margin-top: 10px;
-  background-color: lightgreen;
+  background-color: darkgrey;
   border: solid 2px grey;
   border-radius: 10px 10px;
+  color: white;
+  text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+       3px 3px 0 #000;
+}
+
+.jumbotron {
+  border-bottom: solid 2px black;
+  margin-bottom: -30px;
+  background-image: url(../img/pig.jpg);
+  color: white;
+  text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+       3px 3px 0 #000;
+}
+
+footer {
+   background-color: darkgrey;
+   padding-top: 10px;
+   padding-bottom: 0px;
+   padding-left: 20px;
+   position:fixed;
+   bottom:0;
+   width:100%;
+   border-top: solid 2px black;
+   color: white;
+   font-size: 20px;
+   text-shadow:
+       -1px -1px 0 #000,
+       1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000;
 }

@@ -6,7 +6,7 @@
 
 ## Description
 
-Pig dice is a game in which you try to amass 100 points rolling a die. Everyone roll a player makes is added to the round points, however, if a one is rolled the round points are reset to zero and that player loses their turn. If a player choose to hold before they roll a one they collect the points for that round and the next player takes their turn.
+Pig dice is a game in which you try to amass 100 points rolling a die. Everyone roll a player makes is added to the round points, however, if a one is rolled the round points are reset to zero and that player loses their turn. If a player chooses to hold before they roll a one they collect the points for that round and the next player takes their turn.
 
 ## Setup/Installation Requirements
 

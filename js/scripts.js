@@ -22,14 +22,14 @@ Game.prototype.displayPlayerInfo = function(){
   $("#playerOnePoints").text(this.players[0].name + "'s points: " + this.players[0].points);
   $("#playerTwoPoints").text(this.players[1].name + "'s points: " + this.players[1].points);
   if (this.whoseTurn() === this.players[0]) {
-    $("#playerOneCard").removeClass("inactive-player").addClass("active-player");
+    $("#playerOneCard").addClass("active-player");
   } else {
-    $("#playerOneCard").removeClass("active-player").addClass("inactive-player");
+    $("#playerOneCard").removeClass("active-player");
   }
   if (this.whoseTurn() === this.players[1]) {
-    $("#playerTwoCard").removeClass("inactive-player").addClass("active-player");
+    $("#playerTwoCard").addClass("active-player");
   } else {
-    $("#playerTwoCard").removeClass("active-player").addClass("inactive-player");
+    $("#playerTwoCard").removeClass("active-player");
   }
 };
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
   $("#player-turn").text(game.players[0].name + "'s Turn");
   $("#round-points").text(0);
   $("#playerOnePoints").text(game.players[0].name + "'s points: " + 0);
-  $("#playerTwoPoints").text(game.players[1].name + "'s points: " + 0);
+  $("#playerTwoPoints").addClass("inactive-player").text(game.players[1].name + "'s points: " + 0);
   $("#dice-roll").html("<h1>" + dice[5] + "</h1>");
 
   $("#roll").click(function(){
